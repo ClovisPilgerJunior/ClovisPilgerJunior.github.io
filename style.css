@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+      padding: 2% 5%;
+      display: flex;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para o cabeçalho */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Estilos para as seções */
+  div {
+      display: flex;
+      padding: 1%;
+      margin: 1%;
+      display: block;
+  }
+  
+  div h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para a imagem */
+  img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .img {
+    width: 56px;
+  }
+  
+  /* Estilos para a tabela */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  
+  table th, table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  tr:nth-child(even) {
+      background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+      background-color: #ddd;
+  }
+  
+  /* Estilos para o rodapé */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  ul {
+      list-style-type: circle;
+  }
+  
+  .abilities {
+      list-style-type: square;
+      list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAYRJREFUOE+lkk9LG1EUxc+ZWDGgi3bhKp15mdFmYUOFbIoiUlQQP0FFwZUUChF3Add+ge5dx7qPtEIKdeXKheKiEDOZeS4ttAtRZOTdMim2Scwfm77lu/f83rn3POI/D3voE55tT1a1Pu7U1xXgOs4KgLwfhq/7AVie45wAfEli8TwIDtpBOjrwlHoLwW4sMoKjmg6m/gVAT6kTCLL3IhFrwdd+uRVSd+B53qhE8gKWGYfBOIFXIJYamwWoWcBnEBVjrIokpJJMJmt0bXuOsEoghvpI9GPdwZhSs0akRHD4sRAjZs/RevXPEtPP0zOk2Sc50gtCg2LqIlj7Ctw1peDZ9rSAn7pDZKcahu/icOKHHsToOuqMwEQnFyJm3tf6y329CZDL5Z78uPx+RXKwMwCbvg4+tAW4KTfLhDltEBsCPwV49veuPsJ6e4BSyxQUfxelTKBwHUXfhgYG8yQKAJ62/srmJTrpbYG8sYit8yA4bBwjk8mMRDe370lsVMMgFb8Q138B3k+D4vry0EkAAAAASUVORK5CYII=");
+      list-style-position: inside;
+      padding-inline-start: 20px;
+  }
+  
+  .image-center {
+      text-align: center;
+  }
+  
+  .col-sm-12 {
+      width: 100%;
+  }
+  
+  .col-sm-10 {
+      width: 84%;
+  }
+  
+  .col-sm-9 {
+      width: 75%;
+  }
+  
+  .col-sm-6 {
+      width: 50%;
+  }
+  
+  .col-sm-3 {
+      width: 25%;
+  }
+  
+  .col-sm-2 {
+      width: 16%;
+  }
+  
