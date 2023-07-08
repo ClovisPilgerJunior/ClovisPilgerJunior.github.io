@@ -36,9 +36,9 @@
 </head>
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
-	<div class="container-sm">
+	<div class="container-md">
 		<header>
-			<h1 style="text-align: center">Exercícios parte 3</h1>
+			<h1 style="text-align: center" class="btn btn-outline-primary col-md-12">Exercícios parte 3</h1>
 		</header>
 		<main style="padding: 2% 5%;">
 
@@ -74,6 +74,31 @@
 					</div>
 				</div>
 
+				<div class="col-md-6">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Cidade</span>
+						<input type="number" maxlength="9" class="form-control" id="validationCustom05"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="invalid-feedback">
+							Digite um CEP.
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Estado</span>
+						<select class="form-select" id="validationTooltip04" aria-describedby="inputGroupPrepend"
+							required>
+							<option selected disabled value="">Selecione...</option>
+							<option>SC</option>
+							<option>PR</option>
+							<option>RS</option>
+						</select>
+						<div class="invalid-feedback">
+							Please select a valid state.
+						</div>
+					</div>
+				</div>
 				<div class="col-md-3">
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrepend">CEP</span>
@@ -95,27 +120,38 @@
 					<label class="form-check-label" for="validationFormCheck3">Feminino</label>
 					<div class="invalid-feedback">Por favor escolha seu sexo!</div>
 				</div>
-				<div>
-					<label for="cidade">Cidade</label>
-					<input type="text">
+
+				<div class="mb-3">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Mesagem</span>
+						<textarea class="form-control" id="validationTextarea" placeholder="Digite sua mensagem aqui"
+							aria-describedby="inputGroupPrepend" required></textarea>
+						<div class="invalid-feedback">
+							Por favor entre com sua mensagem.
+						</div>
+					</div>
 				</div>
-				<div>
-					<label for="estado">Estado</label>
-					<select name="estado" id="estado">
-						<option value="">--</option>
-						<option value="PR">PR</option>
-					</select>
+
+				<div class="form-check mb-3">
+					<input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+					<label class="form-check-label" for="validationFormCheck1">Newsletter</label>
+					<div class="valid-feedback">Você aceitou receber as ultimas novidades do nosso site.</div>
 				</div>
 
-				<label>Mensagem:</label>
-				<textarea cols="35" rows="8"></textarea>
+				<div class="mb-3">
+					<button class="btn btn-primary" type="submit">Enviar</button>
+				</div>
 
-				<label>Newsletter</label>
-				<label>
-					<input type="checkbox" name="newsletter" value="1"> Gostaria de receber a Newsletter da empresa
-				</label>
+				<!-- Vertically centered modal -->
+				<div class="modal-dialog modal-dialog-centered">
+					...
+				</div>
 
-				<input type="submit" value="Enviar">
+				<!-- Vertically centered scrollable modal -->
+				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+					...
+				</div>
+
 			</form>
 
 		</main>
