@@ -1,0 +1,114 @@
+body {
+  background: #eee;
+}
+
+
+#side_nav{
+  background: #312e2e;
+  min-width: 250px;
+  max-width: 250px;
+  transition: all 0.3s;
+}
+
+.content{
+  min-height: 100vh;
+  width: 100%;
+}
+
+hr.h-color{
+  background: #eee;
+  height: 2px;
+}
+
+.sidebar li.active{
+  background: #eee;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover{
+  color: #000;
+}
+
+.sidebar li a{
+  color: #fff;
+}
+
+.navbar {
+  background: #eee;
+}
+
+.img {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar {
+  min-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+  height: auto;
+}
+
+@media (max-width: 767px) {
+  .sidebar {
+    height: 100%;
+  }
+}
+
+
+@media(max-width: 767px){
+  #side_nav{
+    margin-left: -250px;
+    position: fixed;
+    min-height: 100vh;
+    z-index: 1;
+  }
+  #side_nav.active{
+    margin-left: 0;
+  }
+}
+
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-button::before,
+.custom-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: background-color 5.3s ease;
+}
+
+.custom-button::before {
+  background-color: #4e17e6;
+  z-index: -1;
+}
+
+.custom-button:hover::before {
+  background-color: #4CAF50;
+}
+
+.custom-button::after {
+  background-color: #3a1601;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.custom-button:active::after {
+  opacity: 1;
+}

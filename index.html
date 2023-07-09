@@ -4,17 +4,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/css/all.min.css" />
+
+    <title>Profile</title>
 </head>
 
-<body class="conteiner-fluid">
- <p>teste de inicio</p>
+<body>
+    <div class="main-container d-flex bg-dark">
+        <div class="sidebar sidebar-content" id="side_nav">
+            <div class="header-box px-3 pt-3 pb-4 d-flex justify-content-between">
+                <h1 class="fs-4"><span class="bg-white text-dark rounded shadow px-2 me-2">+Dev2Blu</span>
+                    <span class="text-white">Profile</span>
+                </h1>
+                <button class="btn d-md-none d-block close-btn text-white"><i
+                        class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+            <div class="text-center p-2 mx-1">
+                <img src="https://media.licdn.com/dms/image/C5603AQH08EupLsYuAw/profile-displayphoto-shrink_800_800/0/1573760809657?e=1694649600&v=beta&t=13UOTsaC71ZzFrT67eR1oHWc6Lx873kPtXPwlrZ09Lw"
+                    alt="profile picture" class="img-fluid rounded-circle my-4 p-1 d-md-block shadow" />
+                <a href="#" class="navbar-brand mx-1 font-weight-bold text-nowrap text-white">Clóvis Pilger
+                    Júnior</a>
+            </div>
+            <ul class="list-unstyled px-2">
+                <li class="active"><a href="#" class="text-decoration-none px-3 py-2 d-block"
+                        onclick="loadContent('profile')"><i class="bi bi-house-door me-2"></i></i>Home</a></li>
+                <li class="">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block accordion-button collapsed" onclick="loadContent('activity')" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                        aria-controls="flush-collapseOne"><i
+                            class=" bi bi-list-task me-2"></i>Activity</a>
+                </li>
+                <li class="">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+                        <span><i class="bi bi-chat me-2"></i>Messages</span>
+                        <span class="bg-dark rounded-pill text-white py-0 px-2">02</span>
+                    </a>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="bi bi-envelope-paper me-2"></i>Services</a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="bi bi-people me-2"></i>Customers</a></li>
+            </ul>
+            <hr class="h-color mx-3">
+
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i
+                            class="bi bi-gear me-2"></i>Settings</a></li>
+                <li class="">
+                    <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
+                        <span><i class="bi bi-bell me-2"></i>Notificaions</span>
+                        <span class="bg-danger rounded-pill text-white py-0 px-2">06</span>
+                    </a>
+                </li>
+                <hr class="h-color mx-2">
+                <button type="button" class="btn me-2 rounded-fill">
+                    <a href="#" onclick="loadContent('https://github.com/ClovisPilgerJunior')">
+                        <i class="bi bi-github" style="font-size: 36px;""></i>
+                    </a>
+                  </button>
+                  <button type=" button" class="btn me-2 rounded-fill">
+                            <a href="#" onclick="loadContent('https://www.linkedin.com/in/clovis-pilger-junior')">
+                                <i class="bi bi-linkedin" style="font-size: 36px;" tooltip="Linkedin"></i>
+                            </a>
+                </button>
+            </ul>
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                        <button class="btn px-1 px-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+                        <a class="navbar-brand" href="#"><span class="bg-dark rounded px-2 py-0 text-white">
+                                3ª Edição</span></a>
+                        <button type="button" class="btn me-2 rounded-fill">
+                            <a href="#" onclick="loadContent('https://github.com/ClovisPilgerJunior')">
+                                <i class="bi bi-github" style="font-size: 24px;""></i>
+                                    </a>
+                                  </button>
+                                  <button type=" button" class="btn me-2 rounded-fill">
+                                    <a href="#"
+                                        onclick="loadContent('https://www.linkedin.com/in/clovis-pilger-junior')">
+                                        <i class="bi bi-linkedin" style="font-size: 24px;" tooltip="Linkedin"></i>
+                                    </a>
+                        </button>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active text-center" aria-current="page" href="#">Profile</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="dashboard-content px-3 pt-4" id="main-content">
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+    <script>
+
+        // Variável para armazenar o conteúdo pré-carregado da página inicial
+        var homeContent = '';
+
+        // Função para pré-carregar o conteúdo da página inicial
+        function preloadHomeContent() {
+            var url = 'profile.html';
+
+            // Faz uma solicitação AJAX para buscar o conteúdo da página inicial
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function (response) {
+                    // Armazena o conteúdo da página inicial na variável
+                    homeContent = response;
+                },
+                error: function (xhr, status, error) {
+                    console.log('Erro na solicitação AJAX:', error);
+                }
+            });
+        }
+
+        // Função auxiliar para verificar se o link é externo
+        function isExternalLink(url) {
+            return url.startsWith('http://') || url.startsWith('https://');
+            console.log('CAIUUUU AOOOOOOOOOOOOOEEe');
+        }
+
+        // Função para carregar o conteúdo da página
+        function loadContent(target) {
+            if (target === 'home') {
+                // Se for a página inicial, exibe o conteúdo pré-carregado
+                document.getElementById('main-content').innerHTML = homeContent;
+            } else {
+                var url = target;
+
+                if (!isExternalLink(target)) {
+                    // Constrói o URL da página interna
+                    url = target + '.html';
+                }
+
+                if (isExternalLink(url)) {
+                    // Abre o link externo em uma nova guia
+                    window.open(url, '_blank');
+                } else {
+                    // Para outras páginas, faz uma solicitação AJAX para buscar o conteúdo correspondente
+                    $.ajax({
+                        url: url,
+                        type: 'GET',
+                        success: function (response) {
+                            // Atualiza o conteúdo principal
+                            document.getElementById('main-content').innerHTML = response;
+                        },
+                        error: function (xhr, status, error) {
+                            console.log('Erro na solicitação AJAX:', error);
+                        }
+                    });
+                }
+            }
+        }
+
+
+
+        // Pré-carrega o conteúdo da página inicial
+        preloadHomeContent();
+
+        // Carrega o conteúdo da página inicial ao carregar a página
+        window.onload = function () {
+            loadContent('home');
+        };
+
+
+
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        })
+
+        $('.open-btn').on('click', function (e) {
+            e.stopPropagation(); // Evita a propagação do evento de clique
+            $('.sidebar').addClass('active');
+        });
+
+        $('.close-btn').on('click', function (e) {
+            e.stopPropagation(); // Evita a propagação do evento de clique
+            $('.sidebar').removeClass('active');
+        });
+
+        $(document).on('click', function (e) {
+            var sidebar = $('.sidebar');
+            var target = $(e.target);
+
+            // Verifica se o clique ocorreu fora do sidebar
+            if (!target.closest(sidebar).length && !target.hasClass('open-btn')) {
+                sidebar.removeClass('active');
+            }
+        });
+
+
+
+    </script>
 </body>
 
 </html>
