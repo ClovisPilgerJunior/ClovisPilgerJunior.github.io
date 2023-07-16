@@ -13,7 +13,6 @@
     <script src="js/Atividades.js"></script>
     <script src="js/atividade2.js"></script>
 
-
     <title>Profile</title>
 </head>
 
@@ -116,6 +115,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
     <script>
@@ -215,6 +215,53 @@
                 sidebar.removeClass('active');
             }
         });
+
+        function pesquisacep() {
+            var cep = document.getElementById("cep").value;
+            var url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+            fetch(url)
+                .then(function (response) {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Erro na requisição");
+                    }
+                })
+                .then(function (jasonRequest) {
+                    if (jasonRequest.erro) {
+                        var cepErrorModal = new bootstrap.Modal(document.getElementById('cepErrorModal'));
+                        cepErrorModal.show();
+
+                    } else {
+                        console.log(jasonRequest);
+                        document.getElementById("logradouro").value = (jasonRequest.logradouro);
+                        document.getElementById("bairro").value = (jasonRequest.bairro);
+                        document.getElementById("localidade").value = (jasonRequest.localidade);
+                        document.getElementById("uf").value = (jasonRequest.uf);
+                    }
+
+
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    if (error) {
+                        var cepErrorModal = new bootstrap.Modal(document.getElementById('cepErrorModal'));
+						cepErrorModal.show();
+                        limpa_formulário_cep()
+                    }
+                });
+
+            function limpa_formulário_cep() {
+                //Limpa valores do formulário de cep.
+                document.getElementById('cep').value = ("")
+                document.getElementById('logradouro').value = ("");
+                document.getElementById('bairro').value = ("");
+                document.getElementById('localidade').value = ("");
+                document.getElementById('uf').value = ("");
+            }
+
+        }
 
 
 

@@ -29,6 +29,7 @@
 				}, false)
 			})
 		})()
+
 	</script>
 	<title>Exercícios parte 3</title>
 
@@ -73,11 +74,11 @@
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-3">
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrepend">CEP</span>
-						<input type="text" inputmode="numeric" maxlength="9" class="form-control" id="validationCustom05"
+						<input type="text" inputmode="numeric" maxlength="9" class="form-control" id="cep"
+						 onblur="pesquisacep();"
 							aria-describedby="inputGroupPrepend" required="">
 						<div class="invalid-feedback">
 							Digite um CEP.
@@ -87,29 +88,36 @@
 				<div class="col-md-9">
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrepend">Rua</span>
-						<input type="text"  class="form-control" id="validationCustom05"
-							aria-describedby="inputGroupPrepend" required="">
+						<input type="text" class="form-control" id="logradouro" aria-describedby="inputGroupPrepend"
+							required="">
 					</div>
 				</div>
 				<div class="col-md-8">
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrepend">Bairro</span>
-						<input type="text"  class="form-control" id="validationCustom05"
-							aria-describedby="inputGroupPrepend" required="">
+						<input type="text" class="form-control" id="bairro" aria-describedby="inputGroupPrepend"
+							required="">
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrepend">Cidade</span>
-						<input type="text"  class="form-control" id="validationCustom05"
-							aria-describedby="inputGroupPrepend" required="">
+						<input type="text" class="form-control" id="localidade" aria-describedby="inputGroupPrepend"
+							required="">
 					</div>
 				</div>
 				<div class="col-md-2">
 					<div class="input-group has-validation">
 						<span class="input-group-text" id="inputGroupPrepend">UF</span>
-						<input type="text"  class="form-control" id="validationCustom05"
-							aria-describedby="inputGroupPrepend" required="">
+						<input type="text" class="form-control" id="uf" aria-describedby="inputGroupPrepend"
+							required="">
+					</div>
+				</div>
+				<div class="col-md-10">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Complemento</span>
+						<input type="text" class="form-control" id="complemento" aria-describedby="inputGroupPrepend"
+							required="">
 					</div>
 				</div>
 				<div class="form-check">
@@ -150,6 +158,26 @@
 					...
 				</div>
 
+				<!-- Modal de erro -->
+				<div class="modal fade" id="cepErrorModal" tabindex="-1" aria-labelledby="cepErrorModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="cepErrorModalLabel">Erro de CEP</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Fechar"></button>
+							</div>
+							<div class="modal-body">
+								<p>O CEP informado não foi encontrado.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<!-- Vertically centered scrollable modal -->
 				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 					...
@@ -160,50 +188,5 @@
 		</main>
 	</div>
 </body>
- <script>
-	const selectField = document.getElementById("country_field");
-	selectField.addEventListener("change", getCountryInformation);
-
-	function getCountryInformation(){
-		const url = `https://restcountries.com/v3.1/name/$(selectField.value?fullText=true`;
-
-		fetch(url)
-		.then((resultResquet) => {
-			return resultResquet.json();
-		})
-		.then((jasonRequest) => {
-			document.getElementById("info_country").setAttribute("Style", "display: block");
-			document.getElementById("name").append(jasonRequest[0].altSpellings);
-			document.getElementById("capital").append(jasonRequest[0].capital);
-			document.getElementById("continente").append(jasonRequest[0].continente);
-
-			for (key in jasonRequest[0].currencies) {
-				indiceMoeda = key;
-			}
-			document.getElementById("currency").append(jasonRequest[0].currencies[indiceMoeda].name);
-
-			for (key in jasonRequest[0].languages) {
-				indiceIdioma = key;
-			}
-
-			document.getElementById("currency").append(jasonRequest[0].languages[indiceIdioma].name);
-
-			document.getElementById("population").append(jasonRequest[0].population);
-
-			document.getElementById("imagem").src = jasonRequest[0].flags.png;
-
-			loadIframe();
-			
-		})
-
-		function loadIframe(country) {
-			document.getElementById("iframe_images").setAttribute("Style", "display:block");
-			const url = `https://www.google.com.br/search?q=${country}&tbm=isch`;
-			iframe.src = url;
-		}
-
-
-	}
- </script>
 
 </html>
