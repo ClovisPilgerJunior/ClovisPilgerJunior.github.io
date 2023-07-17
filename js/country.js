@@ -2,7 +2,7 @@ const selectField = document.getElementById("country_field");
 selectField.addEventListener("change", getCountryInformation);
 
 function getCountryInformation(){
-    const url = `https://restcountries.com/v3.1/name/$(selectField.value?fullText=true)`;
+    const url = `https://restcountries.com/v3.1/name/${selectField.value}?fullText=true`;
 
     fetch(url)
     .then((resultResquet) => {

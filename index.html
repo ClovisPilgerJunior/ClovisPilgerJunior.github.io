@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="fontawesome-free-6.4.0-web/css/all.min.css" />
+    <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+    <link rel="alternate icon" class="js-site-favicon" type="image/png"
+        href="https://github.githubassets.com/favicons/favicon.png">
+    <link rel="icon" class="js-site-favicon" type="image/svg+xml"
+        href="https://github.githubassets.com/favicons/favicon.svg">
 
     <script src="js/Atividades.js"></script>
     <script src="js/atividade2.js"></script>
@@ -40,6 +45,12 @@
                         onclick="loadContent('activity')" type="button" data-bs-toggle="collapse"
                         data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"><i
                             class=" bi bi-list-task me-2"></i>Activity</a>
+                </li>
+                <li class="">
+                    <a href="#challenge" class="text-decoration-none px-3 py-2 d-block accordion-button collapsed"
+                        onclick="loadContent('challenge')" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"><i
+                            class="bi bi-cup-hot-fill me-2"></i>Chalenge</a>
                 </li>
                 <li class="">
                     <a href="#" class="text-decoration-none px-3 py-2 d-block d-flex justify-content-between">
@@ -247,6 +258,51 @@
                 sidebar.removeClass('active');
             }
         });
+       
+        
+        function getCountryInformation() {
+            const selectField = document.getElementById("country_field"); 
+            console.log(selectField);
+            const url = `https://restcountries.com/v3.1/name/${selectField.value}?fullText=true`;
+            console.log(url)
+
+
+            fetch(url)
+                .then((resultResquet) => {
+                    return resultResquet.json();
+                })
+                .then((jasonRequest) => {
+                    document.getElementById("info_country").setAttribute("Style", "display: block");
+                    document.getElementById("name").append(jasonRequest[0].altSpellings);
+                    document.getElementById("capital").append(jasonRequest[0].capital);
+                    document.getElementById("continente").append(jasonRequest[0].continente);
+
+                    for (key in jasonRequest[0].currencies) {
+                        indiceMoeda = key;
+                    }
+                    document.getElementById("currency").append(jasonRequest[0].currencies[indiceMoeda].name);
+
+                    for (key in jasonRequest[0].languages) {
+                        indiceIdioma = key;
+                    }
+
+                    document.getElementById("currency").append(jasonRequest[0].languages[indiceIdioma].name);
+
+                    document.getElementById("population").append(jasonRequest[0].population);
+
+                    document.getElementById("imagem").src = jasonRequest[0].flags.png;
+
+                    loadIframe();
+
+                })
+
+            function loadIframe(country) {
+                document.getElementById("iframe_images").setAttribute("Style", "display:block");
+                const url = `https://www.google.com.br/search?q=${country}&tbm=isch`;
+                iframe.src = url;
+            }
+        }
+
 
         function pesquisacep() {
             var cepErrorModal = new bootstrap.Modal(document.getElementById('cepErrorModal'));
@@ -265,7 +321,7 @@
                 .then(function (jasonRequest) {
                     if (jasonRequest.erro) {
 
-                      cepErrorModal.show();
+                        cepErrorModal.show();
 
                     } else {
                         console.log(jasonRequest);

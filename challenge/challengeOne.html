@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<script>
+		//Example starter JavaScript for disabling form submissions if there are invalid fields
+		(() => {
+			'use strict'
+
+			// Fetch all the forms we want to apply custom Bootstrap validation styles to
+			const forms = document.querySelectorAll('.needs-validation')
+
+			// Loop over them and prevent submission
+			Array.from(forms).forEach(form => {
+				form.addEventListener('submit', event => {
+					if (!form.checkValidity()) {
+						event.preventDefault()
+						event.stopPropagation()
+					}
+
+					form.classList.add('was-validated')
+				}, false)
+			})
+		})()
+
+	</script>
+	<title>Exercícios parte 3</title>
+</head>
+
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+	<div class="container-md">
+		<header>
+			<h1 style="text-align: center" class="btn btn-outline-primary col-md-12">Challenge 2</h1>
+		</header>
+		<main style="padding: 2% 5%;">
+
+			<form class="row g-3 needs-validation was-validated" novalidate="">
+				<div class="col-md-6">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Nome do País</span>
+						<input type="text" class="form-control" id="country_field"
+							aria-describedby="inputGroupPrepend" required="">
+					</div>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-primary" onclick="getCountryInformation()">Enviar</button>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepends">info</span>
+						<input type="text" class="form-control" id="info_country"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Nome</span>
+						<input type="text" class="form-control" id="name"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Capital</span>
+						<input type="text" class="form-control" id="capital"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Continente</span>
+						<input type="text" class="form-control" id="continente"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Moeda</span>
+						<input type="text" class="form-control" id="currency"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Idioma</span>
+						<input type="text" class="form-control" id="language"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">População</span>
+						<input type="text" class="form-control" id="population"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4">
+					<div class="input-group has-validation">
+						<span class="input-group-text" id="inputGroupPrepend">Bandeira</span>
+						<input type="text" class="form-control" id="flag"
+							aria-describedby="inputGroupPrepend" required="">
+						<div class="valid-feedback">
+							Parece bom!
+						</div>
+					</div>
+				</div>
+				
+
+
+
+				<!-- Vertically centered modal -->
+				<div class="modal-dialog modal-dialog-centered">
+					...
+				</div>
+
+				<!-- Vertically centered scrollable modal -->
+				<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+					...
+				</div>
+
+			</form>
+
+		</main>
+	</div>
+</body>
+
+</html>
