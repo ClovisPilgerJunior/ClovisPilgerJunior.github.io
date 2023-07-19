@@ -258,50 +258,67 @@
                 sidebar.removeClass('active');
             }
         });
-       
-        
+
+
         function getCountryInformation() {
-            const selectField = document.getElementById("country_field"); 
+            const selectField = document.getElementById("country_field");
             console.log(selectField);
             const url = `https://restcountries.com/v3.1/name/${selectField.value}?fullText=true`;
-            console.log(url)
-
+            console.log(url);
 
             fetch(url)
                 .then((resultResquet) => {
                     return resultResquet.json();
                 })
-                .then((jasonRequest) => {
-                    document.getElementById("info_country").setAttribute("Style", "display: block");
-                    document.getElementById("name").append(jasonRequest[0].altSpellings);
-                    document.getElementById("capital").append(jasonRequest[0].capital);
-                    document.getElementById("continente").append(jasonRequest[0].continente);
+                .then((jsonRequest) => {
+                    document.getElementById("name").value = jsonRequest[0].altSpellings;
+                    document.getElementById("capital").value = jsonRequest[0].capital;
+                    document.getElementById("continente").value = jsonRequest[0].continents;
 
-                    for (key in jasonRequest[0].currencies) {
+                    let indiceMoeda;
+                    for (const key in jsonRequest[0].currencies) {
                         indiceMoeda = key;
                     }
-                    document.getElementById("currency").append(jasonRequest[0].currencies[indiceMoeda].name);
+                    document.getElementById("currency").value = jsonRequest[0].currencies[indiceMoeda].name;
 
-                    for (key in jasonRequest[0].languages) {
+                    let indiceIdioma;
+                    for (const key in jsonRequest[0].languages) {
                         indiceIdioma = key;
                     }
+                    document.getElementById("languages").value = jsonRequest[0].languages[indiceIdioma].name;
 
-                    document.getElementById("currency").append(jasonRequest[0].languages[indiceIdioma].name);
 
-                    document.getElementById("population").append(jasonRequest[0].population);
+                    document.getElementById("population").value = jsonRequest[0].population;
 
-                    document.getElementById("imagem").src = jasonRequest[0].flags.png;
 
-                    loadIframe();
 
-                })
+                    loadIframe(selectField.value, jsonRequest)
+                });
 
-            function loadIframe(country) {
-                document.getElementById("iframe_images").setAttribute("Style", "display:block");
-                const url = `https://www.google.com.br/search?q=${country}&tbm=isch`;
-                iframe.src = url;
+            function loadIframe(country, jsonRequest) {
+                const iframe = document.getElementById("iframe_images");
+                iframe.style.display = "block";
+                iframe.style.width = "100%";
+                iframe.style.height = "auto";
+
+                const flagUrl = jsonRequest[0].flags.png;
+
+                const image = new Image();
+                image.src = flagUrl;
+                image.onload = function () {
+                    const aspectRatio = image.width / image.height;
+                    const iframeWidth = iframe.offsetWidth;
+                    const iframeHeight = iframeWidth / aspectRatio;
+                    iframe.style.height = iframeHeight + "px";
+                };
+
+                iframe.src = flagUrl;
             }
+
+
+
         }
+
 
 
         function pesquisacep() {
