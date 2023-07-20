@@ -10,6 +10,10 @@ body {
   transition: all 0.3s;
 }
 
+form {
+  z-index: -1;
+}
+
 .content{
   min-height: 100vh;
   width: 100%;
@@ -44,6 +48,7 @@ hr.h-color{
 }
 
 .sidebar {
+  z-index: 5;
   min-height: 100vh;
   overflow-y: auto;
   scrollbar-width: none;
@@ -62,7 +67,7 @@ hr.h-color{
     margin-left: -250px;
     position: fixed;
     min-height: 100vh;
-    z-index: 1;
+    z-index: 5;
   }
   #side_nav.active{
     margin-left: 0;
